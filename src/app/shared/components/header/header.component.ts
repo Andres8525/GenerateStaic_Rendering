@@ -25,37 +25,72 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.25rem 3rem;
+      background: rgba(9, 9, 11, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
     .logo a {
+      font-family: 'Outfit', sans-serif;
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 800;
       color: #fff;
       text-decoration: none;
       letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo a::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: var(--gradient-primary);
+      border-radius: 6px;
+      box-shadow: 0 0 15px rgba(59,130,246,0.5);
     }
     nav ul {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
     nav a {
-      color: #a0aec0;
+      color: var(--text-secondary);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
       font-size: 0.95rem;
+      padding: 0.5rem 0;
+      position: relative;
     }
-    nav a:hover, nav a.active {
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    nav a:hover {
       color: #fff;
+    }
+    nav a.active {
+      color: #fff;
+      font-weight: 600;
+    }
+    nav a.active::after {
+      width: 100%;
     }
   `]
 })
